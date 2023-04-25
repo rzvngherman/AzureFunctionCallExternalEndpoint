@@ -1,12 +1,14 @@
 ﻿using System;
+using System.Net.Http;
 
 namespace AZCEAzureFunction._01_CallGetWeatherForecastFunction
 {
     public class ResponseDto
     {
         public WeatherForecastDto[] Uri3RdPartyResults { get; set; }
+        public string Base3RdPartyCalled { get; set; }
         public string Uri3RdPartyCalled { get; set; }
-        public string MethodType { get; set; }
+        public HttpMethod Uri3RdPartyMethod { get; set; }
     }
 
     public class WeatherForecastDto
