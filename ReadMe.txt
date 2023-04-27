@@ -4,7 +4,7 @@
 	
 2) project AZCEAzureFunction 
 	- azure http function
-	- function 'CallExternalWeatherForecastFunction' with endpoint GET http://localhost:7207/api/CallExternalWeatherForecastFunction
+	- function 'CallExternalWeatherForecastFunction' with endpoint GET http://localhost:8085/api/CallExternalWeatherForecastFunction
 	- makes a call to (1) AZCECoreWebApi, through endpoint GET '/WeatherForecast'
 	
 3) project BlazorServerApp1 

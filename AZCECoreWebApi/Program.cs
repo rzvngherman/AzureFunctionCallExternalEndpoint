@@ -1,8 +1,20 @@
-var builder = WebApplication.CreateBuilder(args);
+using AZCECoreWebApi.Db;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
+using System.Configuration;
 
+var builder = WebApplication.CreateBuilder(args);
+Microsoft.Extensions.Configuration.ConfigurationManager Configuration = builder.Configuration;
 // Add services to the container.
 
 builder.Services.AddControllers();
+
+var dbCon = Configuration.GetConnectionString("DBConnection");
+builder.Services.AddDbContext<AppDbContext>(opt =>
+    //opt.UseInMemoryDatabase("TodoList"));
+    opt.UseSqlServer(dbCon));
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

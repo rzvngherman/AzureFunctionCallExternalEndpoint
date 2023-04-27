@@ -1,3 +1,4 @@
+using AZCECoreWebApi.Db;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AZCECoreWebApi.Controllers
@@ -12,22 +13,35 @@ namespace AZCECoreWebApi.Controllers
     };
 
         private readonly ILogger<WeatherForecastController> _logger;
+        private readonly AppDbContext _context;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, AppDbContext context)
         {
             _logger = logger;
+            _context = context;
         }
 
         [HttpGet(Name = "GetWeatherForecast")]
-        public IEnumerable<WeatherForecast> Get()
+        public async Task<IEnumerable<WeatherForecast>> Get()
         {
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            var arr  = Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
-                Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
+                Date = DateTime.Now.AddDays(index),
                 TemperatureC = Random.Shared.Next(-20, 55),
                 Summary = Summaries[Random.Shared.Next(Summaries.Length)]
             })
             .ToArray();
+
+            var results = _context.WeatherForecast.ToArray();
+#if DEBUG
+            if (results.Length == 0)
+            {
+                _context.WeatherForecast.AddRange(arr);
+                await _context.SaveChangesAsync();
+            }
+#endif
+
+            return results;
         }
     }
 }

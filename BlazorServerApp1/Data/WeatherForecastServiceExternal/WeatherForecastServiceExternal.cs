@@ -13,7 +13,7 @@ namespace BlazorServerApp1.Data.WeatherForecastServiceExternal
     public class WeatherForecastServiceExternal : IWeatherForecastServiceExternal
     {
         // http://localhost:7207/api/CallExternalWeatherForecastFunction
-        private const string BaseUrl = "http://localhost:7207";
+        private const string BaseUrl = "http://localhost:8085";
         private const string functionUri = "/api/CallExternalWeatherForecastFunction";
         private HttpMethod functionMethod = HttpMethod.Get;
 
