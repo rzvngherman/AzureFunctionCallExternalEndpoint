@@ -79,10 +79,14 @@ export class WeatherForecast extends Component {
 
     async populateWeatherData() {
 
-        //var url = '/api/WeatherForecast';
-        var url = '/api/CallExternalWeatherForecastFunction';
-        const response = await fetch(url);
+        //using proxy:
+        //var url = '/api/CallExternalWeatherForecastFunction';
+
+        //no proxy
+        var url = 'http://localhost:8085/api/CallExternalWeatherForecastFunction';
+
         try {
+            const response = await fetch(url);
             const data = await response.json();
             this.setState({ forecasts: data, loading: false });
         }

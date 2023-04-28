@@ -37,7 +37,6 @@
     ]
   },
   "devDependencies": {
-    "eslint-config-react-app": "^7.0.1",
     "http-proxy-middleware": "^2.0.6",
     "jest-editor-support": "^31.0.1"
   }

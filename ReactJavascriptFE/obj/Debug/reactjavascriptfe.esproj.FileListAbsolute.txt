@@ -1,0 +1,2 @@
+D:\m\github_com2\AzureFunctionCallExternalEndpoint\ReactJavascriptFE\obj\Debug\reactjavascriptfe.esproj.SuggestedBindingRedirects.cache
+D:\m\github_com2\AzureFunctionCallExternalEndpoint\ReactJavascriptFE\obj\Debug\reactjavascriptfe.esproj.CoreCompileInputs.cache

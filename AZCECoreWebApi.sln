@@ -15,7 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Files", "Files", "{8A56F0CB
 		ReadMe.txt = ReadMe.txt
 	EndProjectSection
 EndProject
-Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "reactserverapp1", "ReactServerApp1\reactserverapp1.esproj", "{3C0C694C-5038-41B5-9858-47827AFBCC45}"
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "reactjavascriptfe", "ReactJavascriptFE\reactjavascriptfe.esproj", "{6AFB38E0-A8A0-46CE-8A70-20F1EE643028}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,12 +35,12 @@ Global
 		{E3B53621-E873-4D26-9326-CFFC123D79CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E3B53621-E873-4D26-9326-CFFC123D79CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E3B53621-E873-4D26-9326-CFFC123D79CE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3C0C694C-5038-41B5-9858-47827AFBCC45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3C0C694C-5038-41B5-9858-47827AFBCC45}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3C0C694C-5038-41B5-9858-47827AFBCC45}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{3C0C694C-5038-41B5-9858-47827AFBCC45}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3C0C694C-5038-41B5-9858-47827AFBCC45}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3C0C694C-5038-41B5-9858-47827AFBCC45}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{6AFB38E0-A8A0-46CE-8A70-20F1EE643028}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AFB38E0-A8A0-46CE-8A70-20F1EE643028}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AFB38E0-A8A0-46CE-8A70-20F1EE643028}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{6AFB38E0-A8A0-46CE-8A70-20F1EE643028}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AFB38E0-A8A0-46CE-8A70-20F1EE643028}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6AFB38E0-A8A0-46CE-8A70-20F1EE643028}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
