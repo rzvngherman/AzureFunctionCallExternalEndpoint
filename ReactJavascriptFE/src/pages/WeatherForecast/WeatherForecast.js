@@ -40,17 +40,13 @@ export class WeatherForecast extends Component {
         this.populateWeatherData();
     }
 
-    renderForecastsTable(forecasts) {
-
-        const { name, title, counter } = this.state;
-        var article = this.state.article;
-        var articleVisible = this.state.articleVisible;
+    renderForecastsTable(forecastData) {
 
         return (
             <div className="container2">
 
-                <p>function uri '{forecasts.FunctionUri}', base-url '@_response.BaseUrl',  method '@_response.FunctionMethod'</p>
-                <p>external endpoint called from function '@_response.Uri3RdPartyCalled', base-url '@_response.Base3RdPartyCalled', methodType '@_response.Uri3RdPartyMethod'.</p>
+                <p>function uri '{forecastData.FunctionUri}', base-url '{forecastData.BaseUrl}',  method '{forecastData.FunctionMethod}'</p>
+                <p>external endpoint called from function '{forecastData.uri3RdPartyCalled}', base-url '{forecastData.base3RdPartyCalled}', methodType '{forecastData.uri3RdPartyMethod.method}'.</p>
                 <p>Data retrieved:</p>
 
                 <table className='table table-striped' aria-labelledby="tabelLabel">
@@ -63,7 +59,7 @@ export class WeatherForecast extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {forecasts.map(forecast =>
+                        {forecastData.uri3RdPartyResults.map(forecast =>
                             <tr key={forecast.date}>
                                 <td>{forecast.date}</td>
                                 <td>{forecast.temperatureC}</td>
@@ -73,16 +69,13 @@ export class WeatherForecast extends Component {
                         )}
                     </tbody>
                 </table>
+
             </div>
         );
     }
 
     async populateWeatherData() {
 
-        //using proxy:
-        //var url = '/api/CallExternalWeatherForecastFunction';
-
-        //no proxy
         var url = 'http://localhost:8085/api/CallExternalWeatherForecastFunction';
 
         try {
