@@ -1,0 +1,126 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "01_build--AZCECoreWebApi",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/AZCECoreWebApi/AZCECoreWebApi.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "publish",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "publish",
+                "${workspaceFolder}/AZCECoreWebApi/AZCECoreWebApi.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "watch",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "watch",
+                "run",
+                "--project",
+                "${workspaceFolder}/AZCECoreWebApi/AZCECoreWebApi.csproj"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "clean (functions)",
+            "command": "dotnet",
+            "args": [
+                "clean",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "type": "process",
+            "problemMatcher": "$msCompile",
+            "options": {
+                "cwd": "${workspaceFolder}/AZCEAzureFunction"
+            }
+        },
+        {
+            "label": "build (functions)",
+            "command": "dotnet",
+            "args": [
+                "build",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "type": "process",
+            "dependsOn": "clean (functions)",
+            "group": "build",
+            "problemMatcher": "$msCompile",
+            "options": {
+                "cwd": "${workspaceFolder}/AZCEAzureFunction"
+            }
+        },
+        {
+            "label": "clean release (functions)",
+            "command": "dotnet",
+            "args": [
+                "clean",
+                "--configuration",
+                "Release",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "type": "process",
+            "problemMatcher": "$msCompile",
+            "options": {
+                "cwd": "${workspaceFolder}/AZCEAzureFunction"
+            }
+        },
+        {
+            "label": "publish (functions)",
+            "command": "dotnet",
+            "args": [
+                "publish",
+                "--configuration",
+                "Release",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "type": "process",
+            "dependsOn": "clean release (functions)",
+            "problemMatcher": "$msCompile",
+            "options": {
+                "cwd": "${workspaceFolder}/AZCEAzureFunction"
+            }
+        },
+        {
+            "type": "func",
+            "dependsOn": "build (functions)",
+            "options": {
+                "cwd": "${workspaceFolder}/AZCEAzureFunction/bin/Debug/net6.0"
+            },
+            "command": "host start",
+            "isBackground": true,
+            "problemMatcher": "$func-dotnet-watch"
+        },
+        {
+            "type": "npm",
+            "script": "start",
+            "path": "ReactJavascriptFE",
+            "problemMatcher": [],
+            "label": "build--ReactJavascriptFE--npm: start - ReactJavascriptFE",
+            "detail": "react-scripts start",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}

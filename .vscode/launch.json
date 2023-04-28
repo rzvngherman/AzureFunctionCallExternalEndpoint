@@ -1,0 +1,34 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+
+        {
+            "name": "01_BACKEND_API",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "01_build--AZCECoreWebApi",
+            "program": "${workspaceFolder}/AZCECoreWebApi/bin/Debug/net7.0/AZCECoreWebApi.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/AZCECoreWebApi",
+            "stopAtEntry": false,
+            "serverReadyAction": {
+                "action": "openExternally",
+                "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
+            },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development",
+                "ASPNETCORE_URLS":"http://localhost:7150"
+            },
+            "sourceFileMap": {
+                "/Views": "${workspaceFolder}/Views"
+            }
+        },
+
+        {
+            "name": "02_Azure_Function",
+            "type": "coreclr",
+            "request": "attach",
+            "processId": "${command:azureFunctions.pickProcess}"
+        }
+    ]
+}

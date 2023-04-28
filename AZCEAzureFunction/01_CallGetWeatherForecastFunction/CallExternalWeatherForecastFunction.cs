@@ -15,7 +15,7 @@ namespace AZCEAzureFunction._01_CallGetWeatherForecastFunction
     public static class CallExternalWeatherForecastFunction
     {
         //web api address
-        private const string webApiBaseAddress = "https://localhost:7150";
+        private const string webApiBaseAddress = "http://localhost:7150";
         private const string uri = "/api/WeatherForecast";
 
         [FunctionName("CallExternalWeatherForecastFunction")]
