@@ -29,6 +29,14 @@
             "type": "coreclr",
             "request": "attach",
             "processId": "${command:azureFunctions.pickProcess}"
+        },
+        {
+            "name": "03_FE_react",
+            "command": "npm run start",
+            "request": "launch",
+            "type": "node-terminal",
+            "localRoot": "${workspaceRoot}/ReactJavascriptFE",
+            "cwd": "${workspaceFolder}/ReactJavascriptFE",
         }
     ]
 }
