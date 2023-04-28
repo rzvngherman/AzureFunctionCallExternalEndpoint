@@ -14,7 +14,8 @@ namespace AZCEAzureFunction._01_CallGetWeatherForecastFunction
 {
     public static class CallExternalWeatherForecastFunction
     {
-        private const string baseAddress = "https://localhost:7150";
+        //web api address
+        private const string webApiBaseAddress = "https://localhost:7150";
         private const string uri = "/api/WeatherForecast";
 
         [FunctionName("CallExternalWeatherForecastFunction")]
@@ -27,7 +28,7 @@ namespace AZCEAzureFunction._01_CallGetWeatherForecastFunction
             try
             {
                 HttpClient newClient = new HttpClient();
-                newClient.BaseAddress = new Uri(baseAddress);
+                newClient.BaseAddress = new Uri(webApiBaseAddress);
 
                 HttpRequestMessage newRequest = new HttpRequestMessage(HttpMethod.Get, uri);
 
@@ -50,7 +51,7 @@ namespace AZCEAzureFunction._01_CallGetWeatherForecastFunction
                         Uri3RdPartyResults = checkResponse,
                         Uri3RdPartyMethod = HttpMethod.Get,
                         Uri3RdPartyCalled = uri,
-                        Base3RdPartyCalled = baseAddress
+                        Base3RdPartyCalled = webApiBaseAddress
                     };
 
                     return new OkObjectResult(result);

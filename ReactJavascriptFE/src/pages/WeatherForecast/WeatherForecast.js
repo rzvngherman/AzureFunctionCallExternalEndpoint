@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
 
+export const functionDetails = {
+    functionUri: '/api/CallExternalWeatherForecastFunction',
+    functionBaseUrl: 'http://localhost:8085',
+    functionMethod: 'GET',
+};
+
+
 export class WeatherForecast extends Component {
 
     /*
@@ -42,6 +49,10 @@ export class WeatherForecast extends Component {
 
     renderForecastsTable(forecastData) {
 
+        forecastData.FunctionUri = functionDetails.functionUri;
+        forecastData.BaseUrl = functionDetails.functionBaseUrl;
+        forecastData.FunctionMethod = functionDetails.functionMethod;
+
         return (
             <div className="container2">
 
@@ -76,7 +87,8 @@ export class WeatherForecast extends Component {
 
     async populateWeatherData() {
 
-        var url = 'http://localhost:8085/api/CallExternalWeatherForecastFunction';
+        //call azure function
+        var url = functionDetails.functionBaseUrl + functionDetails.functionUri;
 
         try {
             const response = await fetch(url);
