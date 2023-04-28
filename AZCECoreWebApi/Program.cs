@@ -1,3 +1,4 @@
+using AZCECoreWebApi.Cache;
 using AZCECoreWebApi.Db;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -10,10 +11,7 @@ Microsoft.Extensions.Configuration.ConfigurationManager Configuration = builder.
 
 builder.Services.AddControllers();
 
-var dbCon = Configuration.GetConnectionString("DBConnection");
-builder.Services.AddDbContext<AppDbContext>(opt =>
-    //opt.UseInMemoryDatabase("TodoList"));
-    opt.UseSqlServer(dbCon));
+ConfigureServices(builder.Services);
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -35,3 +33,17 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+
+void ConfigureServices(IServiceCollection services)
+{
+    //sql
+    var dbCon = Configuration.GetConnectionString("DBConnection");
+    services.AddDbContext<AppDbContext>(opt =>
+        //opt.UseInMemoryDatabase("TodoList"));
+        opt.UseSqlServer(dbCon));
+
+    services.AddMemoryCache();
+
+    services.AddScoped<ICacheProvider, CacheProvider>();
+}

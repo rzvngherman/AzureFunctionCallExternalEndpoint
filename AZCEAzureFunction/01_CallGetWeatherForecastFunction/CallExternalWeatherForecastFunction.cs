@@ -15,19 +15,13 @@ namespace AZCEAzureFunction._01_CallGetWeatherForecastFunction
     public static class CallExternalWeatherForecastFunction
     {
         private const string baseAddress = "https://localhost:7150";
-        private const string uri = "/WeatherForecast";
+        private const string uri = "/api/WeatherForecast";
 
         [FunctionName("CallExternalWeatherForecastFunction")]
         public static async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
             ILogger log)
         {
-            //await Task.Run(() =>
-            //{
-
-            //});
-            //return new OkObjectResult("OK-OK");
-
             log.LogInformation("C# HTTP trigger function processed a request.");
 
             try
